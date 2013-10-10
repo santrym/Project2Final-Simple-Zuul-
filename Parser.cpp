@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 /**
  * This class is part of the "World of Zuul" application. 
@@ -13,8 +12,8 @@ import java.util.Scanner;
  * the known commands, and if the input is not one of the known commands, it
  * returns a command object that is marked as an unknown command.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2011.08.08
+ * @author  Mike Santry
+ * @version 2013.10.09
  */
 
 
@@ -28,16 +27,17 @@ public class Parser
     /**
      * Create a parser to read from the terminal window.
      */
-    public Parser() 
+    int Parser::main() 
     {
         commands = new CommandWords();
         reader = new Scanner(System.in);
+        return 0;
     }
 
     /**
      * @return The next command from the user.
      */
-    public Command getCommand() 
+    Command Parser::getCommand() 
     {
         String inputLine;   // will hold the full input line
         String word1 = null;
@@ -70,7 +70,7 @@ public class Parser
     /**
      * Print out a list of valid command words.
      */
-    public void showCommands()
+    void Parser::showCommands()
     {
         commands.showAll();
     }

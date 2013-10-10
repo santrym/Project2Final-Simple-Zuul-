@@ -13,8 +13,8 @@
  *
  * If the command had only one word, then the second word is <null>.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2011.08.08
+ * @author  Mike Santry
+ * @version 2013.10.09
  */
 
 #include <string>
@@ -32,11 +32,8 @@ class Command
 
     public:
     /**
-     * Create a command object. First and second word must be supplied, but
-     * either one (or both) can be null.
-     * @param firstWord The first word of the command. Null if the command
-     *                  was not recognised.
-     * @param secondWord The second word of the command.
+     * Creates a command object, given two strings
+     * The first string becomes commandWord and the second becomes secondWord.
      */
     int main(string firstWord, string secondWord);
 
@@ -63,3 +60,6 @@ class Command
      */
     bool hasSecondWord();
 };
+
+#endif
+

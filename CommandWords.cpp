@@ -5,8 +5,8 @@
  * This class holds an enumeration of all command words known to the game.
  * It is used to recognise commands as they are typed in.
  *
- * @author  Michael Kölling and David J. Barnes
- * @version 2011.08.08
+ * author  Mike Santry
+ * version 2013.10.09
  */
 
 #include <validWords>
@@ -17,13 +17,11 @@ using namespace std;
 class CommandWords
 {
     
-    //private:
         // a constant array that holds all valid command words
         private static final String[] validCommands = {
             "go", "quit", "help"
         };
 
-    //public:
 
     /**
      * Constructor - initialise the command words.
@@ -37,7 +35,7 @@ class CommandWords
      * Check whether a given String is a valid command word. 
      * @return true if it is, false if it isn't.
      *
-     * *****************************************************************formerly called bool isCommand(String aString)
+     * *********************formerly called "bool isCommand(String aString)"
      */
     bool CommandWords::main(String aString)
     {
@@ -50,21 +48,14 @@ class CommandWords
     }
 
     /**
-     * Print all valid commands to System.out.
+     * Print all valid commands using cout.
      */
     void CommandWords::showAll() 
     {
         for(vector<string>::iterator command = validCommands.begin(); command != validCommands.end(); command++)
         {
-            cout << *command;
+            cout << *command << "  ";
         }
-
-
-
-        //for(String command: validCommands) {
-        //  System.out.print(command + "  ");
-        //}
-        //System.out.println();
     }
 
     int CommandWords::main()
