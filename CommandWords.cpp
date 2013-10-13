@@ -9,41 +9,50 @@
  * version 2013.10.09
  */
 
-#include <validWords>
+//#include <validWords>
+
+#include <iomanip>
+#include <ios>
+#include <iostream>
+#include <string>
+
+
+#include <vector>
 #include "CommandWords.h"
+using std::string;
+using std::cin;
+using std::cout;
 using namespace std;
 
 
-class CommandWords
-{
     
-        // a constant array that holds all valid command words
-        private static final String[] validCommands = {
-            "go", "quit", "help"
-        };
+    vector<string> CommandWordVec(3);
 
-
-    /**
-     * Constructor - initialise the command words.
-     */
-    void CommandWords::CommandWords()
-    {
-        // nothing to do at the moment...
-    }
-
+        
     /**
      * Check whether a given String is a valid command word. 
      * @return true if it is, false if it isn't.
      *
      * *********************formerly called "bool isCommand(String aString)"
      */
-    bool CommandWords::main(String aString)
+    bool CommandWords::main(string commandWord)
     {
-        for(int i = 0; i < validCommands.length; i++) {
-            if(validCommands[i].equals(aString))
+                
+        CommandWordVec[0] = "go";
+        CommandWordVec[1] = "quit";
+        CommandWordVec[2] = "help";
+
+        CommandWordTest(commandWord);
+
+    }
+
+    bool CommandWords::CommandWordTest(string commandWord){
+        for(vector<string>::iterator command = CommandWordVec.begin(); command != CommandWordVec.end(); command++)
+        {
+            if(*command == commandWord){
                 return true;
-        }
-        // if we get here, the string was not found in the commands
+            }
+        }  
         return false;
     }
 
@@ -52,17 +61,12 @@ class CommandWords
      */
     void CommandWords::showAll() 
     {
-        for(vector<string>::iterator command = validCommands.begin(); command != validCommands.end(); command++)
+        for(vector<string>::iterator command = CommandWordVec.begin(); command != CommandWordVec.end(); command++)
         {
             cout << *command << "  ";
         }
     }
 
-    int CommandWords::main()
-    {
-        
-        return 0;
-    }
+    
+    
 
-
-};

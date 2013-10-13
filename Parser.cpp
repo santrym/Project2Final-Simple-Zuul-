@@ -16,21 +16,38 @@
  * @version 2013.10.09
  */
 
+#include "Parser.h"
+#include "Command.h"
+#include "CommandWords.h"
+#include <cstddef>        // std::size_t
+#include <iomanip>
+#include <ios>
+#include <iostream>
+#include <string>
 
 
+using std::cin;
+using std::cout;
+using std::endl;
+using std::setprecision;
+using std::string;
+using std::streamsize;
 
-public class Parser 
-{
-    private CommandWords commands;  // holds all valid command words
-    private Scanner reader;         // source of command input
+
+ 
+
+    //public CommandWords commands;  // holds all valid command words
+    //private Scanner reader;         // source of command input
 
     /**
      * Create a parser to read from the terminal window.
      */
     int Parser::main() 
     {
-        commands = new CommandWords();
-        reader = new Scanner(System.in);
+        
+        CommandWords *commandWords1 = new CommandWords;
+
+        //commands = new CommandWords();
         return 0;
     }
 
@@ -39,24 +56,46 @@ public class Parser
      */
     Command Parser::getCommand() 
     {
-        String inputLine;   // will hold the full input line
-        String word1 = null;
-        String word2 = null;
+        string userInput;
+        string string1;   // will hold the full input line
+        string string2;
+        string word1 = NULL;
+        string word2 = NULL;
 
-        System.out.print("> ");     // print prompt
+        //asks user for input.
+        cout << "give command: " ;    // print prompt
 
-        inputLine = reader.nextLine();
+        //sets users input as "userInput".
+        cin >> userInput ;
 
-        // Find up to two words on the line.
-        Scanner tokenizer = new Scanner(inputLine);
-        if(tokenizer.hasNext()) {
-            word1 = tokenizer.next();      // get first word
-            if(tokenizer.hasNext()) {
-                word2 = tokenizer.next();      // get second word
-                // note: we just ignore the rest of the input line.
-            }
+
+        //finds position of first space.
+        unsigned pos = userInput.find(" ");
+        bool val = true;
+        //if there is no space, pos is set to the length of userInput.
+        if(pos==0){
+            pos = userInput.length();
+            val = false;
         }
 
+        //sets string1 equal to first word in input
+        string1 = userInput.substr (pos);
+
+        if(val == true){
+            //sets string2 equal to the second word (if there is one) in input.
+            string2 = userInput.substr(pos+1, userInput.length()-pos+1);
+        }
+
+
+        if(commandWords1.CommandWordTest(string1)){
+            return new Command(string1, string2);
+        }
+        else{
+            return new Command(NULL, string2);
+        }
+
+        
+        /**
         // Now check whether this word is known. If so, create a command
         // with it. If not, create a "null" command (for unknown command).
         if(commands.isCommand(word1)) {
@@ -65,6 +104,7 @@ public class Parser
         else {
             return new Command(null, word2); 
         }
+        **/
     }
 
     /**
@@ -74,4 +114,4 @@ public class Parser
     {
         commands.showAll();
     }
-};
+

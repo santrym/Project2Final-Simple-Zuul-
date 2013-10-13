@@ -17,29 +17,48 @@
  */
 
 
+#include "Command.h"
+#include "CommandWords.h"
+#include "Command.h"
+#include "CommandWords.h"
+#include <cstddef>        // std::size_t
+#include <iomanip>
+#include <ios>
+#include <iostream>
+#include <string>
+
+
+using std::cin;
+using std::cout;
+using std::endl;
+using std::setprecision;
+using std::string;
+using std::streamsize;
+
+
 
 
 class Parser 
 {
     private:
-    private CommandWords commands;  // holds all valid command words
-    private Scanner reader;         // source of command input
+    //private CommandWords commands;  // holds all valid command words
+    //private Scanner reader;         // source of command input
 
     public:
     /**
      * Create a parser to read from the terminal window.
      */
-    public Parser(); 
+    int main(); 
     
 
     /**
      * @return The next command from the user.
      */
-    public Command getCommand();
+    Command getCommand();
     
 
     /**
      * Print out a list of valid command words.
      */
-    public void showCommands();
+    void showCommands();
 };

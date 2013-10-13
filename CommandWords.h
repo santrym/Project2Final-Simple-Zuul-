@@ -9,9 +9,20 @@
  * @version 2013.10.09
  */
 
-#include <validWords>
-using namespace std;
+//#include <validWords>
 
+#include <iomanip>
+#include <ios>
+#include <iostream>
+#include <string>
+
+
+
+#include <vector>
+using namespace std;
+using std::string;
+using std::cin;
+using std::cout;
 
 #ifndef COMMANDWORDS_H
 #define COMMANDWORDS_H
@@ -20,10 +31,7 @@ class CommandWords
 {
     
     private:
-        // a constant array that holds all valid command words
-        private static final String[] validCommands {
         
-        };
 
     public:
 
@@ -31,7 +39,7 @@ class CommandWords
      * Constructor - initialise the command words.
      */
     
-    bool main(String aString);
+    bool main(string commandWord);
 
     /**
      * Print all valid commands to System.out.
@@ -39,7 +47,14 @@ class CommandWords
     void showAll();
 
     
-    int int main();
+    /**
+    * Tests to see if the commandWord is a valid commandWord.
+    **/
+
+    bool CommandWordTest(string commandWord);
+
 
 
 };
+
+#endif
