@@ -15,8 +15,6 @@
 #include <ios>
 #include <iostream>
 #include <string>
-
-
 #include <vector>
 #include "CommandWords.h"
 using std::string;
@@ -33,7 +31,7 @@ using namespace std;
      * Check whether a given String is a valid command word. 
      * @return true if it is, false if it isn't.
      *
-     * *********************formerly called "bool isCommand(String aString)"
+     * 
      */
     bool CommandWords::main(string commandWord)
     {
@@ -46,6 +44,9 @@ using namespace std;
 
     }
 
+    /**
+    * Tests to see if the given "commandWord" is in fact a command word. If it is it will return true, else false.
+    **/
     bool CommandWords::CommandWordTest(string commandWord){
         for(vector<string>::iterator command = CommandWordVec.begin(); command != CommandWordVec.end(); command++)
         {

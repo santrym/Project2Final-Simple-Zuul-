@@ -41,10 +41,9 @@ using std::streamsize;
 class Parser 
 {
     private:
-    //private CommandWords commands;  // holds all valid command words
-    //private Scanner reader;         // source of command input
-
+    
     public:
+    
     /**
      * Create a parser to read from the terminal window.
      */

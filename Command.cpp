@@ -23,10 +23,8 @@
 using namespace std;
 
 
-
     string commandWord;
     string secondWord;
-
 
     /**
      * Creates a command object, given two strings

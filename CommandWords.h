@@ -9,15 +9,11 @@
  * @version 2013.10.09
  */
 
-//#include <validWords>
 
 #include <iomanip>
 #include <ios>
 #include <iostream>
 #include <string>
-
-
-
 #include <vector>
 using namespace std;
 using std::string;
